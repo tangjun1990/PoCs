@@ -4,15 +4,15 @@ pipeline {
     stage('Check Syntax') {
       steps {
         script {
-          sh ''
+          sh 'echo "phplang"'
         }
       }
     }
     stage('Check Code Style') {
       steps {
         script {
-          sh ''
-          sh ''
+          sh 'echo "phpcs"'
+          sh 'echo "phpmd"'
         }
       }
     }
@@ -26,8 +26,8 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          sh ''
-          sh ''
+          sh 'echo "composerinstall"'
+          sh 'echo " mkdirlogdir"'
         }
       }
     }
