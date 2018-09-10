@@ -1,17 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Check Syntax') {
+    stage('Code Check') {
       steps {
         script {
-          sh 'echo "phplang"'
-        }
-      }
-    }
-    stage('Check Code Style') {
-      steps {
-        script {
-          sh 'echo "phpcs"'
+          sh '~/.composer/vendor/bin/
+              phpcs /opt/weiboad/ad-api/api/src/application/plugins/
+               --standard=PSR2'
           sh 'echo "phpmd"'
         }
       }
