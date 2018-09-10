@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Code Check') {
+    stage('Prepare') {
       steps {
         script {
           sh '/Users/tangjun1/.composer/vendor/bin/phpcs /opt/weiboad/ad-api/api/src/application/plugins/ --standard=PSR2'
@@ -9,7 +9,7 @@ pipeline {
         }
       }
     }
-    stage('Unit Test') {
+    stage('Test') {
       steps {
         script {
           sh 'echo "phpunit"'
