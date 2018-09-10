@@ -33,7 +33,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sshagent (credentials: ['59e2d691-cf50-41c3-86cc-76ed393c278a']) {
+        //sshagent (credentials: ['59e2d691-cf50-41c3-86cc-76ed393c278a']) {
           script {
             if (env.BRANCH_NAME == "develop") {
               sh 'ssh jenkins@c162 "if [ ! -d /data/site/'+JOB_NAME+' ]; then mkdir -p /data/site/'+JOB_NAME+'; fi"'
@@ -46,7 +46,7 @@ pipeline {
               sh 'ssh jenkins@c168 "sudo chmod -R 777 /data/site/store/release/storage"'
             }
           }
-        }
+        //}
       }
     }
   }
