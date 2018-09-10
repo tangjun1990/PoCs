@@ -4,15 +4,15 @@ pipeline {
     stage('Check Syntax') {
       steps {
         script {
-          sh 'find ./ -name "*.php" -type f -exec php -l {} \;'
+          sh ''
         }
       }
     }
     stage('Check Code Style') {
       steps {
         script {
-          sh 'phpcs ./ --standard=PSR2'
-          sh 'phpmd /path/to/file text /opt/work/phpmd-rulesets/phpmd_ruleset.xml'
+          sh ''
+          sh ''
         }
       }
     }
@@ -26,8 +26,8 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          sh 'composer install'
-          sh 'cp /home/env/'+JOB_NAME+'.env xxxxxx.ini'
+          sh ''
+          sh ''
         }
       }
     }
