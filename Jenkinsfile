@@ -4,7 +4,7 @@ pipeline {
     stage('Check Syntax') {
       steps {
         script {
-          sh 'find ./ -name '*.php' -type f -exec php -l {} \;'
+          sh 'find ./ -name "*.php" -type f -exec php -l {} \;'
         }
       }
     }
