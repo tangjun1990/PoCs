@@ -4,8 +4,8 @@ pipeline {
     stage('Code Check') {
       steps {
         script {
-          sh 'echo "phpcs"'
-          sh '/Users/tangjun1/.composer/vendor/bin/phpmd /opt/weiboad/ad-api/api/src/application/plugins/ text /opt/work/phpmd-rulesets/phpmd_ruleset.xml'
+          sh '/Users/tangjun1/.composer/vendor/bin/phpcs /opt/weiboad/ad-api/api/src/application/plugins/ --standard=PSR2'
+          sh '/Users/tangjun1/.composer/vendor/bin/phpmd /opt/weiboad/ad-api/api/src/application/ text /opt/work/phpmd-rulesets/phpmd_ruleset.xml'
         }
       }
     }
