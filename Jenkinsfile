@@ -40,9 +40,9 @@ pipeline {
             sh 'ssh jenkins@c162 "sudo chmod -R 777 /data/site/store/develop/storage/"'
           }
           if (env.BRANCH_NAME == "master") {
-            sh 'ssh jenkins@c168 "if [ ! -d /data/site/'+JOB_NAME+' ]; then mkdir -p /data/site/'+JOB_NAME+'; fi"'
-            sh 'rsync -alz --delete --exclude-from=.exclude . jenkins@c168:/data/site/'+JOB_NAME
-            sh 'ssh jenkins@c168 "sudo chmod -R 777 /data/site/store/release/storage"'
+            sh 'ssh tangjun1@c168 "if [ ! -d /data/site/'+JOB_NAME+' ]; then mkdir -p /data/site/'+JOB_NAME+'; fi"'
+            sh 'rsync -alz --delete --exclude-from=.exclude . tangjun1@c168:/data/site/'+JOB_NAME
+            sh 'ssh tangjun1@c168 "sudo chmod -R 777 /data/site/store/release/storage"'
           }
         }
       }
