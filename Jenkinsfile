@@ -33,7 +33,6 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sshagent (credentials: ['1B029A53-869D-434F-BD22-D69FE18EBC44']) {
         script {
           if (env.BRANCH_NAME == "develop") {
             sh 'ssh tangjun1@bj-m-212918a "if [ ! -d /opt/project/'+JOB_NAME+' ]; then mkdir -p /opt/project/'+JOB_NAME+'; fi"'
@@ -45,7 +44,6 @@ pipeline {
             sh 'rsync -alz --delete --exclude-from=.exclude . tangjun1@bj-m-212918a:/opt/project/'+JOB_NAME
             sh 'ssh tangjun1@bj-m-212918a "sudo chmod -R 777 /opt/project/po/master"'
           }
-        }
         }
       }
     }
